@@ -1,1 +1,2 @@
 # Parallel-Prefix-Sum
+Simulates Prefix Sum using Parallel Programming. An Array of 256 numbers is initialized and populated with the numbers 1 to 256. Every number added up from 1 to 256 is 32896, which should be the number the last processor sends back. MPI_Scatter is called to send 32 numbers to 8 processors. Processor 0 recieves 1 to 32 while processor 1 recieves 33 to 64 and so on. In each processor we add up the scattered array to get a sum in each processor. We then add up each sum with MPI_Scan, which mimics how parallel prefix sum works. 
